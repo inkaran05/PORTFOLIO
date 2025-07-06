@@ -41,6 +41,58 @@
       overflow-y: scroll;
       height: 100vh;
     }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(12, 12, 12, 0.85);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 9999;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 10;
+      color: white;
+      text-align: center;
+      background-color: transparent;
+      padding: 0 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #ccc;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .bg-video {
+      opacity: 0.5;
+      filter: blur(8px);
+    }
   </style>
   <video class="bg-video" autoplay muted loop>
     <source src="https://storage.googleapis.com/pinhole-about-assets-prod-asia/RNDR_TunnelVidoes_stretched_005_1440x1080.mp4" type="video/mp4">
@@ -75,12 +127,12 @@
       </div>
     </section>
     <section id="hero" class="relative w-full h-screen overflow-hidden">
-      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1] opacity-60 blur-md" style="filter: blur(10px); transform: scale(1.1);">
+      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover bg-video" style="transform: scale(1.1);">
         <source src="https://storage.googleapis.com/pinhole-about-assets-prod-asia/RNDR_TunnelVidoes_stretched_005_1440x1080.mp4" type="video/mp4" />
       </video>
-      <div class="hero-text relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 class="text-6xl font-bold">Karan Kumar</h1>
-        <p class="text-2xl mt-4">Future Cloud Architect</p>
+      <div class="hero-text flex flex-col items-center justify-center h-full text-center px-4">
+        <h1>Karan Kumar</h1>
+        <p>Future Cloud Architect</p>
       </div>
     </section>
 
