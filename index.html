@@ -3,276 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karan Kumar | Future Cloud Architect</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXX');
-  </script>
-
-  <!-- SEO Meta Tags -->
-  <meta name="title" content="Karan Kumar | Portfolio" />
-  <meta name="description" content="Cloud & AI Enthusiast | Portfolio site of Karan Kumar" />
-  <meta name="keywords" content="Karan Kumar, Portfolio, Cloud, DevOps, AI, JECRC" />
-  <meta name="author" content="Karan Kumar" />
-  <meta property="og:title" content="Karan Kumar | Portfolio" />
-  <meta property="og:description" content="Cloud & AI Enthusiast | Developer Portfolio" />
-  <meta property="og:url" content="https://inkaran05.github.io/PORTFOLIO/" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+  <title>Karan Kumar | Flow Inspired Portfolio</title>
   <style>
     :root {
-      --bg-dark: #0a0a0a;
-      --card-bg: rgba(255, 255, 255, 0.05);
+      --bg: #0c0c0c;
+      --text: #ffffff;
       --accent: #64ffda;
-      --text-light: #e0e0e0;
-      --border: rgba(255, 255, 255, 0.1);
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
     }
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
+
+    main {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
     }
-    header h1 {
-      font-size: 3rem;
-      color: var(--accent);
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      z-index: 10;
-    }
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 600;
-    }
+
     section {
-      max-width: 900px;
-      margin: auto;
-      padding: 3rem 1rem;
+      scroll-snap-align: start;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      position: relative;
+      transition: opacity 0.5s ease-in-out;
     }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero {
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0c0c0c 100%);
+      flex-direction: column;
       text-align: center;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
-    .project {
-      margin-top: 1rem;
+
+    .hero h1 {
+      font-size: 4rem;
     }
-    .project a {
-      color: var(--accent);
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      color: #ccc;
     }
-    #contact p, #contact a {
-      font-size: 1.1rem;
+
+    .parallax {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(100,255,218,0.1), transparent 70%);
+      transition: transform 0.1s ease-out;
     }
-    .icon {
-      margin-right: 10px;
-      color: var(--accent);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.9rem;
+
+    .content {
+      z-index: 1;
+      position: relative;
     }
   </style>
 </head>
 <body>
-  <canvas id="rippleCanvas"></canvas>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-    <button id="toggleTheme" style="background:none; border:none; color:#64ffda; font-size:1rem; cursor:pointer;">🌙 Toggle</button>
-  </nav>
+  <main>
+    <section class="hero">
+      <div class="parallax" id="parallax"></div>
+      <div class="content">
+        <h1>Karan Kumar</h1>
+        <p>Future Cloud Architect | Building immersive digital experiences</p>
+      </div>
+    </section>
 
-  <header>
-    <h1>Karan Kumar</h1>
-    <p>Future Cloud Architect</p>
-  </header>
+    <section>
+      <div class="content">
+        <h2>About Me</h2>
+        <p>I am a passionate Cloud & AI enthusiast who believes in building with purpose. Learning full-stack development, DevOps, and automation — with a strong base in C++ and Python.</p>
+      </div>
+    </section>
 
-  <section id="about" class="card fade-in">
-    <!-- Optional avatar -->
-    <!-- <img src="avatar.svg" alt="Karan Avatar" class="avatar"> -->
-
-    <h2>About Me</h2>
-    <p>
-      I'm <strong>Karan Kumar</strong>, a passionate <strong>Cloud and AI enthusiast</strong> studying Computer Science at JECRC University. I love turning ideas into clean, efficient code and building futuristic solutions. Whether it's automating tasks, designing interactive websites, or learning DevOps workflows — I'm all in. Let's build something amazing together.
-    </p>
-
-    <blockquote>
-      “Code is the cloth of the digital world — I’m here to weave it.”
-    </blockquote>
-  </section>
-
-  <section id="projects" class="card">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>💻 Responsive Portfolio Website</h3>
-      <p>A ripple-interactive personal portfolio using HTML, CSS, and JS. <a href="https://inkaran05.github.io/PORTFOLIO/" target="_blank">View Live</a></p>
-    </div>
-    <div class="project">
-      <h3>📚 Exam Preparation Tracker</h3>
-      <p>A study planning tool tailored for engineering semester success. <a href="https://github.com/inkaran05/exam-tracker" target="_blank">GitHub Repo</a></p>
-    </div>
-    <div class="project">
-      <h3>🧵 Cloth Ripple Animation</h3>
-      <p>Mouse-follow ripple effect simulating cloth movement. <a href="#">Demo Coming Soon</a></p>
-    </div>
-    <div class="project">
-      <h3>🏫 IIT Madras Clone</h3>
-      <p>
-        🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone" target="_blank" rel="noopener noreferrer">Live Demo</a> |
-        <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-      </p>
-    </div>
-  </section>
-
-  <section id="skills" class="card">
-    <h2>Tech Stack & Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">C++</div>
-      <div class="skill">Python</div>
-      <div class="skill">HTML5</div>
-      <div class="skill">CSS3</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">Git & GitHub</div>
-      <div class="skill">Linux</div>
-      <div class="skill">Docker</div>
-      <div class="skill">AWS (Learning)</div>
-      <div class="skill">DevOps (Learning)</div>
-      <div class="skill">VSCode</div>
-    </div>
-  </section>
-
-  <section id="education" class="card">
-    <h2>Education</h2>
-    <p><strong>JECRC University</strong></p>
-    <p>B.Tech in Computer Science (2024–2028)</p>
-    <p>Focused on C++, Cloud Computing, DevOps, and AI through structured learning and personal projects.</p>
-  </section>
-
-  <section id="contact" class="card">
-    <h2>Let’s Connect</h2>
-    <p><i class="fas fa-envelope icon"></i><a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
-    <p><i class="fab fa-linkedin icon"></i><a href="https://linkedin.com/in/karan-kumar-6701542a7" target="_blank">LinkedIn Profile</a></p>
-    <p><i class="fab fa-github icon"></i><a href="https://github.com/inkaran05" target="_blank">GitHub Profile</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Karan Kumar | Built with 💙 from India</p>
-  </footer>
+    <section>
+      <div class="content">
+        <h2>IIT Madras Clone</h2>
+        <p>A pixel-perfect clone of the official IIT Madras website using pure HTML/CSS. <br>
+        🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone" target="_blank" style="color: var(--accent);">Live Demo</a> |
+        <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank" style="color: var(--accent);">GitHub Repo</a></p>
+      </div>
+    </section>
+  </main>
 
   <script>
-    // Ripple canvas effect
-    const canvas = document.getElementById('rippleCanvas');
-    const ctx = canvas.getContext('2d');
-    canvas.style.position = 'fixed';
-    canvas.style.top = 0;
-    canvas.style.left = 0;
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.zIndex = 0;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let ripples = [];
-
-    document.addEventListener('mousemove', e => {
-      ripples.push({ x: e.clientX, y: e.clientY, radius: 0 });
-    });
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ripples.forEach((r, i) => {
-        r.radius += 3;
-        const alpha = 1 - r.radius / 300;
-        if (alpha <= 0) ripples.splice(i, 1);
-        else {
-          ctx.beginPath();
-          ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(150, 200, 255, ${alpha * 0.07})`;
-          ctx.lineWidth = 12;
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = 'rgba(100,200,255,0.05)';
-          ctx.stroke();
-        }
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
-  <script>
-    const root = document.documentElement;
-    const btn = document.getElementById("toggleTheme");
-    let dark = true;
-
-    btn.onclick = () => {
-      dark = !dark;
-      if (!dark) {
-        root.style.setProperty('--bg-dark', '#f0f0f0');
-        root.style.setProperty('--text-light', '#111');
-        root.style.setProperty('--card-bg', '#ffffffcc');
-        root.style.setProperty('--border', '#ccc');
-        btn.innerText = '☀️ Toggle';
-      } else {
-        root.style.setProperty('--bg-dark', '#0a0a0a');
-        root.style.setProperty('--text-light', '#e0e0e0');
-        root.style.setProperty('--card-bg', 'rgba(255,255,255,0.05)');
-        root.style.setProperty('--border', 'rgba(255,255,255,0.1)');
-        btn.innerText = '🌙 Toggle';
-      }
-    };
-  </script>
-
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    });
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
+    const parallax = document.getElementById('parallax');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      parallax.style.transform = `translate(${x}px, ${y}px)`;
     });
   </script>
 </body>
