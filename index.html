@@ -2,198 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karan Kumar | Future Cloud Architect</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papb+X+6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    body {
+    :root {
+      --bg-dark: #0a0a0a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #64ffda;
+      --text-light: #e0e0e0;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+    * {
       margin: 0;
-      font-family: 'Poppins', 'Roboto', sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/black-linen.png');
-      color: #fff;
-      background-color: #111;
+      padding: 0;
+      box-sizing: border-box;
     }
     html {
       scroll-behavior: smooth;
     }
-    header, section, footer {
-      padding: 40px 20px;
-      text-align: center;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
     }
     header {
-      background: rgba(0, 0, 0, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
+      text-align: center;
+      padding: 4rem 1rem;
     }
     header h1 {
-      font-size: 2rem;
-      margin: 0;
+      font-size: 3rem;
+      color: var(--accent);
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
     nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      z-index: 10;
     }
     nav a {
-      color: #64FFDA;
+      color: var(--text-light);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
     }
-    nav a:hover,
-    nav a:focus {
-      color: #1E88E5;
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1rem;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      max-width: 800px;
-      margin: 0 auto 1rem;
-    }
-    a {
-      color: #1da1f2;
-      text-decoration: none;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
     }
     .project {
-      margin-bottom: 30px;
+      margin-top: 1rem;
     }
-    canvas#rippleCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      pointer-events: none;
+    .project a {
+      color: var(--accent);
     }
-    .content {
-      position: relative;
-      z-index: 1;
+    #contact p, #contact a {
+      font-size: 1.1rem;
+    }
+    .icon {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <canvas id="rippleCanvas"></canvas>
-  <div class="content">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <header>
-      <div class="header-left">
-        <h1>Karan Kumar</h1>
-        <p>Future Cloud Architect</p>
-      </div>
-      <nav class="header-nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button id="popupOpenBtn" aria-label="Open popup">Menu</button>
-    </header>
+  <header>
+    <h1>Karan Kumar</h1>
+    <p>Future Cloud Architect</p>
+  </header>
 
-    <!-- Responsive Popup Modal -->
-    <div id="popupModal" class="popup-modal" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-hidden="true">
-      <div class="popup-content">
-        <button id="popupCloseBtn" aria-label="Close popup">&times;</button>
-        <h2 id="popupTitle">Menu</h2>
-        <nav class="popup-nav">
-          <a href="#about" class="popup-link">About</a>
-          <a href="#projects" class="popup-link">Projects</a>
-          <a href="#contact" class="popup-link">Contact</a>
-        </nav>
-      </div>
+  <section id="about" class="card">
+    <h2>About Me</h2>
+    <p>
+      I'm Karan Kumar, a Computer Science student at JECRC University passionate about building in the cloud and AI domains. I enjoy crafting responsive websites, automating tasks, and learning through structured self-guided plans. This portfolio reflects my learning journey and personal evolution.
+    </p>
+  </section>
+
+  <section id="projects" class="card">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>💻 Responsive Portfolio Website</h3>
+      <p>A ripple-interactive personal portfolio using HTML, CSS, and JS. <a href="https://inkaran05.github.io/PORTFOLIO/" target="_blank">View Live</a></p>
     </div>
+    <div class="project">
+      <h3>📚 Exam Preparation Tracker</h3>
+      <p>A study planning tool tailored for engineering semester success. <a href="https://github.com/inkaran05/exam-tracker" target="_blank">GitHub Repo</a></p>
+    </div>
+    <div class="project">
+      <h3>🧵 Cloth Ripple Animation</h3>
+      <p>Mouse-follow ripple effect simulating cloth movement. <a href="#">Demo Coming Soon</a></p>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm Karan Kumar, a Computer Science student at JECRC University with a strong focus on building my future in Cloud Architecture and Artificial Intelligence. 
-        My learning journey is self-driven, structured, and aimed at mastering both development and infrastructure. 
-        This portfolio is part of my continuous effort to apply skills practically, grow publicly, and build projects that reflect real-world needs.
-      </p>
-    </section>
+  <section id="education" class="card">
+    <h2>Education</h2>
+    <p><strong>JECRC University</strong></p>
+    <p>B.Tech in Computer Science (2024–2028)</p>
+    <p>Focused on C++, Cloud Computing, DevOps, and AI through structured learning and personal projects.</p>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+  <section id="contact" class="card">
+    <h2>Let’s Connect</h2>
+    <p><i class="fas fa-envelope icon"></i><a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
+    <p><i class="fab fa-linkedin icon"></i><a href="https://linkedin.com/in/karan-kumar-6701542a7" target="_blank">LinkedIn Profile</a></p>
+    <p><i class="fab fa-github icon"></i><a href="https://github.com/inkaran05" target="_blank">GitHub Profile</a></p>
+  </section>
 
-      <div class="project">
-        <h3>Responsive Portfolio Website</h3>
-        <p>A ripple-interactive personal portfolio using canvas and JS.</p>
-        <a href="https://inkaran05.github.io/PORTFOLIO/" target="_blank">View Live</a>
-      </div>
+  <footer>
+    <p>© 2025 Karan Kumar | Built with 💙 from India</p>
+  </footer>
 
-      <div class="project">
-        <h3>Exam Preparation Tracker</h3>
-        <p>A study planning framework tailored for engineering semester exams.</p>
-        <a href="https://github.com/inkaran05/exam-tracker" target="_blank">GitHub Repo (Coming Soon)</a>
-      </div>
-
-      <div class="project">
-        <h3>Cloth Ripple Animation Demo</h3>
-        <p>Mouse-driven ripple effect simulating fabric movement using Canvas.</p>
-        <a href="#" target="_blank">Live Demo (In Progress)</a>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <p><strong>JECRC University</strong></p>
-      <p>B.Tech in Computer Science (2024–2028)</p>
-      <p>Currently building skills in C++, Web Dev, Cloud, DevOps, and AI through structured personal learning plans.</p>
-    </section>
-
-    <section id="tech-stack">
-      <h2>Tech Stack</h2>
-      <p><strong>Languages:</strong> C++, Python, JavaScript</p>
-      <p><strong>Tools:</strong> Git, VSCode, Linux, Docker</p>
-      <p><strong>Learning:</strong> AWS, DevOps, AI/ML</p>
-    </section>
-
-    <section id="call-to-action">
-      <h2>Let's Connect</h2>
-      <p>I'm open for internships, collaborations or freelance projects. <a href="mailto:in.iamkaran@outlook.com">Let’s connect!</a></p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><i class="fa fa-envelope"></i> Email: <a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
-      <p><i class="fa fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/karan-kumar-6701542a7" target="_blank">linkedin.com/in/karan-kumar</a></p>
-      <p><i class="fa fa-github"></i> GitHub: <a href="https://github.com/inkaran05" target="_blank">github.com/inkaran05</a></p>
-    </section>
-
-    <footer>
-      <p>© 2025 Karan Kumar. All rights reserved.</p>
-    </footer>
-
-  </div>
-
-  <!-- Ripple Effect Script -->
   <script>
+    // Ripple canvas effect
     const canvas = document.getElementById('rippleCanvas');
     const ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
+    canvas.style.position = 'fixed';
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = 0;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     let ripples = [];
 
     document.addEventListener('mousemove', e => {
@@ -202,19 +165,20 @@
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = ripples.length - 1; i >= 0; i--) {
-        let r = ripples[i];
+      ripples.forEach((r, i) => {
         r.radius += 3;
-        const alpha = Math.max(1 - r.radius / 300, 0);
+        const alpha = 1 - r.radius / 300;
         if (alpha <= 0) ripples.splice(i, 1);
         else {
           ctx.beginPath();
           ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
           ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.2})`;
           ctx.lineWidth = 20;
+          ctx.shadowBlur = 30;
+          ctx.shadowColor = 'rgba(100,200,255,0.2)';
           ctx.stroke();
         }
-      }
+      });
       requestAnimationFrame(animate);
     }
     animate();
