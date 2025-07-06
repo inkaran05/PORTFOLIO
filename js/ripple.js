@@ -49,4 +49,57 @@ style.textContent = `
     }
   }
 `;
+
+// Repel effect implementation for Three.js scene
+const repelRadius = 100;
+const repelPower = 0.8;
+const mouseVector = new THREE.Vector2();
+const mouseWorld = new THREE.Vector3();
+
+function setupRepelEffect(scene, camera, groundPlane) {
+  // Create attractor point
+  const repelGeometry = new THREE.SphereGeometry(5, 16, 16);
+  const repelMaterial = new THREE.MeshBasicMaterial({ 
+    color: 0xff0000,
+    visible: false // Set to true for debugging
+  });
+  const repelPoint = new THREE.Mesh(repelGeometry, repelMaterial);
+  scene.add(repelPoint);
+
+  // Mouse movement handler
+  document.addEventListener('mousemove', (event) => {
+    mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseVector.y = - (event.clientY / window.innerHeight) * 2 + 1;
+    
+    // Update world position
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouseVector, camera);
+    const intersects = raycaster.intersectObjects([groundPlane]); // Use existing plane
+    if (intersects.length > 0) {
+      mouseWorld.copy(intersects[0].point);
+      repelPoint.position.copy(mouseWorld);
+    }
+  });
+
+  return repelPoint;
+}
+
+function repelObjects(objects, repelPoint) {
+  objects.forEach(object => {
+    const distance = object.position.distanceTo(repelPoint.position);
+    if (distance < repelRadius) {
+      const repelDirection = new THREE.Vector3()
+        .copy(object.position)
+        .sub(repelPoint.position)
+        .normalize()
+        .multiplyScalar((repelRadius - distance) * repelPower * 0.1);
+      object.position.add(repelDirection);
+      
+      // Optional: Scale effect
+      const scale = 1 + (1 - distance/repelRadius) * 0.5;
+      object.scale.set(scale, scale, scale);
+    }
+  });
+}
+
 document.head.appendChild(style);
