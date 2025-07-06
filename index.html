@@ -6,6 +6,27 @@
   <title>Karan Kumar | Future Cloud Architect</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXX');
+  </script>
+
+  <!-- SEO Meta Tags -->
+  <meta name="title" content="Karan Kumar | Portfolio" />
+  <meta name="description" content="Cloud & AI Enthusiast | Portfolio site of Karan Kumar" />
+  <meta name="keywords" content="Karan Kumar, Portfolio, Cloud, DevOps, AI, JECRC" />
+  <meta name="author" content="Karan Kumar" />
+  <meta property="og:title" content="Karan Kumar | Portfolio" />
+  <meta property="og:description" content="Cloud & AI Enthusiast | Developer Portfolio" />
+  <meta property="og:url" content="https://inkaran05.github.io/PORTFOLIO/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <style>
     :root {
       --bg-dark: #0a0a0a;
@@ -97,6 +118,7 @@
     <a href="#projects">Projects</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
+    <button id="toggleTheme" style="background:none; border:none; color:#64ffda; font-size:1rem; cursor:pointer;">🌙 Toggle</button>
   </nav>
 
   <header>
@@ -124,6 +146,23 @@
     <div class="project">
       <h3>🧵 Cloth Ripple Animation</h3>
       <p>Mouse-follow ripple effect simulating cloth movement. <a href="#">Demo Coming Soon</a></p>
+    </div>
+  </section>
+
+  <section id="skills" class="card">
+    <h2>Tech Stack & Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">C++</div>
+      <div class="skill">Python</div>
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Git & GitHub</div>
+      <div class="skill">Linux</div>
+      <div class="skill">Docker</div>
+      <div class="skill">AWS (Learning)</div>
+      <div class="skill">DevOps (Learning)</div>
+      <div class="skill">VSCode</div>
     </div>
   </section>
 
@@ -182,6 +221,28 @@
       requestAnimationFrame(animate);
     }
     animate();
+  </script>
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById("toggleTheme");
+    let dark = true;
+
+    btn.onclick = () => {
+      dark = !dark;
+      if (!dark) {
+        root.style.setProperty('--bg-dark', '#f0f0f0');
+        root.style.setProperty('--text-light', '#111');
+        root.style.setProperty('--card-bg', '#ffffffcc');
+        root.style.setProperty('--border', '#ccc');
+        btn.innerText = '☀️ Toggle';
+      } else {
+        root.style.setProperty('--bg-dark', '#0a0a0a');
+        root.style.setProperty('--text-light', '#e0e0e0');
+        root.style.setProperty('--card-bg', 'rgba(255,255,255,0.05)');
+        root.style.setProperty('--border', 'rgba(255,255,255,0.1)');
+        btn.innerText = '🌙 Toggle';
+      }
+    };
   </script>
 </body>
 </html>
