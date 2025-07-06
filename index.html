@@ -4,14 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Karan Kumar | Future Cloud Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papb+X+6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', 'Roboto', sans-serif;
       background: url('https://www.transparenttextures.com/patterns/black-linen.png');
       color: #fff;
       background-color: #111;
+    }
+    html {
+      scroll-behavior: smooth;
     }
     header, section, footer {
       padding: 40px 20px;
@@ -19,6 +30,32 @@
     }
     header {
       background: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #64FFDA;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #1E88E5;
     }
     h1 {
       font-size: 3rem;
@@ -61,6 +98,12 @@
       <p>Future Cloud Architect</p>
     </header>
 
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <section id="about">
       <h2>About Me</h2>
       <p>
@@ -99,11 +142,23 @@
       <p>Currently building skills in C++, Web Dev, Cloud, DevOps, and AI through structured personal learning plans.</p>
     </section>
 
+    <section id="tech-stack">
+      <h2>Tech Stack</h2>
+      <p><strong>Languages:</strong> C++, Python, JavaScript</p>
+      <p><strong>Tools:</strong> Git, VSCode, Linux, Docker</p>
+      <p><strong>Learning:</strong> AWS, DevOps, AI/ML</p>
+    </section>
+
+    <section id="call-to-action">
+      <h2>Let's Connect</h2>
+      <p>I'm open for internships, collaborations or freelance projects. Let’s connect!</p>
+    </section>
+
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/karan-kumar-6701542a7" target="_blank">linkedin.com/in/karan-kumar</a></p>
-      <p>GitHub: <a href="https://github.com/inkaran05" target="_blank">github.com/inkaran05</a></p>
+      <p><i class="fa fa-envelope"></i> Email: <a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
+      <p><i class="fa fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/karan-kumar-6701542a7" target="_blank">linkedin.com/in/karan-kumar</a></p>
+      <p><i class="fa fa-github"></i> GitHub: <a href="https://github.com/inkaran05" target="_blank">github.com/inkaran05</a></p>
     </section>
 
     <footer>
