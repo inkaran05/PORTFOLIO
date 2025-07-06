@@ -237,6 +237,7 @@ a:hover, a:focus {
   left: 0;
   pointer-events: none;
   z-index: 0; /* Lowered to avoid blocking links */
+  /* Removed display:none to make ripple canvas visible */
 }
 
 a {
