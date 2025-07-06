@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karan Kumar | Flow Inspired Portfolio</title>
+  <title>Karan Kumar | Flow-Inspired Portfolio</title>
   <style>
     :root {
       --bg: #0c0c0c;
@@ -39,7 +39,8 @@
       justify-content: center;
       padding: 4rem;
       position: relative;
-      transition: opacity 0.5s ease-in-out;
+      flex-direction: column;
+      text-align: center;
     }
 
     h1, h2, h3 {
@@ -49,8 +50,6 @@
 
     .hero {
       background: radial-gradient(circle at center, #1a1a1a 0%, #0c0c0c 100%);
-      flex-direction: column;
-      text-align: center;
     }
 
     .hero h1 {
@@ -70,13 +69,53 @@
       top: 0;
       left: 0;
       pointer-events: none;
-      background: radial-gradient(circle at center, rgba(100,255,218,0.1), transparent 70%);
+      background: radial-gradient(circle at center, rgba(100,255,218,0.07), transparent 70%);
       transition: transform 0.1s ease-out;
     }
 
     .content {
       z-index: 1;
       position: relative;
+      max-width: 800px;
+    }
+
+    .project, .skill-set, .contact-info {
+      margin-top: 2rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--accent);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .skill:hover {
+      background-color: rgba(100,255,218,0.1);
+      transform: translateY(-3px);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #888;
     }
   </style>
 </head>
@@ -93,19 +132,57 @@
     <section>
       <div class="content">
         <h2>About Me</h2>
-        <p>I am a passionate Cloud & AI enthusiast who believes in building with purpose. Learning full-stack development, DevOps, and automation — with a strong base in C++ and Python.</p>
+        <p>I am a Cloud & AI enthusiast learning full-stack development, DevOps, and automation — with a strong foundation in C++ and Python.</p>
       </div>
     </section>
 
     <section>
       <div class="content">
-        <h2>IIT Madras Clone</h2>
-        <p>A pixel-perfect clone of the official IIT Madras website using pure HTML/CSS. <br>
-        🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone" target="_blank" style="color: var(--accent);">Live Demo</a> |
-        <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank" style="color: var(--accent);">GitHub Repo</a></p>
+        <h2>Featured Project</h2>
+        <div class="project">
+          <h3>IIT Madras Website Clone</h3>
+          <p>A responsive clone of the IIT Madras homepage built using HTML and CSS.</p>
+          <p>
+            🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone/" target="_blank">Live Demo</a> |
+            <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank">GitHub</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content">
+        <h2>Skills</h2>
+        <div class="skill-list">
+          <div class="skill">C++</div>
+          <div class="skill">Python</div>
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">Git & GitHub</div>
+          <div class="skill">Linux</div>
+          <div class="skill">Docker</div>
+          <div class="skill">AWS (Learning)</div>
+          <div class="skill">DevOps (Learning)</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content">
+        <h2>Contact</h2>
+        <div class="contact-info">
+          <p>Email: <a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/karan-kumar-6701542a7/" target="_blank">karan-kumar</a></p>
+          <p>GitHub: <a href="https://github.com/inkaran05" target="_blank">inkaran05</a></p>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    &copy; 2025 Karan Kumar. Crafted with minimalism.
+  </footer>
 
   <script>
     const parallax = document.getElementById('parallax');
@@ -115,5 +192,6 @@
       parallax.style.transform = `translate(${x}px, ${y}px)`;
     });
   </script>
+  <script src="js/ripple.js"></script>
 </body>
 </html>

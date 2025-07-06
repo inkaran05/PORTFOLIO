@@ -1,28 +1,46 @@
-// Popup modal open/close script
 document.addEventListener('DOMContentLoaded', () => {
-  const popupOpenBtn = document.getElementById('popupOpenBtn');
-  const popupCloseBtn = document.getElementById('popupCloseBtn');
-  const popupModal = document.getElementById('popupModal');
+  document.body.addEventListener('click', function (e) {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    this.appendChild(ripple);
 
-  popupOpenBtn.addEventListener('click', () => {
-    popupModal.setAttribute('aria-hidden', 'false');
-  });
+    const maxDim = Math.max(this.clientWidth, this.clientHeight);
+    ripple.style.width = ripple.style.height = maxDim + 'px';
 
-  popupCloseBtn.addEventListener('click', () => {
-    popupModal.setAttribute('aria-hidden', 'true');
-  });
+    const rect = this.getBoundingClientRect();
+    ripple.style.left = e.clientX - rect.left - maxDim / 2 + 'px';
+    ripple.style.top = e.clientY - rect.top - maxDim / 2 + 'px';
 
-  // Close popup when clicking outside content
-  popupModal.addEventListener('click', (e) => {
-    if (e.target === popupModal) {
-      popupModal.setAttribute('aria-hidden', 'true');
-    }
-  });
+    ripple.classList.add('ripple-animate');
 
-  // Close popup on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popupModal.getAttribute('aria-hidden') === 'false') {
-      popupModal.setAttribute('aria-hidden', 'true');
-    }
+    ripple.addEventListener('animationend', () => {
+      ripple.remove();
+    });
   });
 });
+
+const style = document.createElement('style');
+style.textContent = `
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.4;
+    transform: scale(0);
+    pointer-events: none;
+    animation: ripple-effect 0.6s linear;
+    z-index: 1000;
+  }
+
+  .ripple-animate {
+    animation-name: ripple-effect;
+  }
+
+  @keyframes ripple-effect {
+    to {
+      opacity: 0;
+      transform: scale(4);
+    }
+  }
+`;
+document.head.appendChild(style);
