@@ -1,34 +1,28 @@
-const canvas = document.getElementById('rippleCanvas');
-const ctx = canvas.getContext('2d');
+// Popup modal open/close script
+document.addEventListener('DOMContentLoaded', () => {
+  const popupOpenBtn = document.getElementById('popupOpenBtn');
+  const popupCloseBtn = document.getElementById('popupCloseBtn');
+  const popupModal = document.getElementById('popupModal');
 
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
+  popupOpenBtn.addEventListener('click', () => {
+    popupModal.setAttribute('aria-hidden', 'false');
+  });
 
-let ripples = [];
+  popupCloseBtn.addEventListener('click', () => {
+    popupModal.setAttribute('aria-hidden', 'true');
+  });
 
-document.addEventListener('mousemove', e => {
-  ripples.push({ x: e.clientX, y: e.clientY, radius: 0 });
-});
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = ripples.length - 1; i >= 0; i--) {
-    let r = ripples[i];
-    r.radius += 3;
-    const alpha = Math.max(1 - r.radius / 300, 0);
-    if (alpha <= 0) ripples.splice(i, 1);
-    else {
-      ctx.beginPath();
-      ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.2})`;
-      ctx.lineWidth = 20;
-      ctx.stroke();
+  // Close popup when clicking outside content
+  popupModal.addEventListener('click', (e) => {
+    if (e.target === popupModal) {
+      popupModal.setAttribute('aria-hidden', 'true');
     }
-  }
-  requestAnimationFrame(animate);
-}
-animate();
+  });
+
+  // Close popup on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popupModal.getAttribute('aria-hidden') === 'false') {
+      popupModal.setAttribute('aria-hidden', 'true');
+    }
+  });
+});

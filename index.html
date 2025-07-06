@@ -94,15 +94,30 @@
   <div class="content">
 
     <header>
-      <h1>Karan Kumar</h1>
-      <p>Future Cloud Architect</p>
+      <div class="header-left">
+        <h1>Karan Kumar</h1>
+        <p>Future Cloud Architect</p>
+      </div>
+      <nav class="header-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="popupOpenBtn" aria-label="Open popup">Menu</button>
     </header>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <!-- Responsive Popup Modal -->
+    <div id="popupModal" class="popup-modal" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-hidden="true">
+      <div class="popup-content">
+        <button id="popupCloseBtn" aria-label="Close popup">&times;</button>
+        <h2 id="popupTitle">Menu</h2>
+        <nav class="popup-nav">
+          <a href="#about" class="popup-link">About</a>
+          <a href="#projects" class="popup-link">Projects</a>
+          <a href="#contact" class="popup-link">Contact</a>
+        </nav>
+      </div>
+    </div>
 
     <section id="about">
       <h2>About Me</h2>

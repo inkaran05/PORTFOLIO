@@ -22,12 +22,92 @@ body, html {
   padding: 2rem 1rem;
 }
 
+/* Popup Modal Styles */
+.popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.popup-modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.popup-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  color: #64FFDA;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.popup-content button#popupCloseBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #64FFDA;
+  cursor: pointer;
+}
+
+.popup-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-link {
+  color: #64FFDA;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.popup-link:hover,
+.popup-link:focus {
+  color: #1E88E5;
+}
+
+/* Responsive adjustments for popup */
+@media (max-width: 480px) {
+  .popup-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
 header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  padding: 10px 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: #64FFDA;
 }
 
 header h1 {
