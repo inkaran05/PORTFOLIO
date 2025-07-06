@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karan Kumar | Flow-Inspired Portfolio</title>
+  <title>Karan Kumar | Cloud Architect Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-dTLVjsFvSb13R1C0MLkNuIGQYAh/NvLDRtwLs8tQXZACqUqfH2KVQfEGJ+j6YvMfZnFC9a7dcKDyVwDbmW4RSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg: #0c0c0c;
@@ -23,6 +24,7 @@
       background-color: var(--bg);
       color: var(--text);
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     main {
@@ -31,21 +33,54 @@
       height: 100vh;
     }
 
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(12, 12, 12, 0.85);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
     section {
       scroll-snap-align: start;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4rem;
+      padding: 6rem 2rem 4rem;
       position: relative;
       flex-direction: column;
       text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1, h2, h3 {
       font-weight: 600;
       margin-bottom: 1rem;
+      letter-spacing: 0.05em;
     }
 
     .hero {
@@ -69,7 +104,7 @@
       top: 0;
       left: 0;
       pointer-events: none;
-      background: radial-gradient(circle at center, rgba(100,255,218,0.07), transparent 70%);
+      background: radial-gradient(circle at center, rgba(100,255,218,0.03), transparent 70%);
       transition: transform 0.1s ease-out;
     }
 
@@ -79,7 +114,7 @@
       max-width: 800px;
     }
 
-    .project, .skill-set, .contact-info {
+    .project, .skill-set, .contact-info, .experience, .education {
       margin-top: 2rem;
     }
 
@@ -92,7 +127,7 @@
     }
 
     .skill {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--accent);
       padding: 0.6rem 1rem;
       border-radius: 8px;
@@ -102,8 +137,8 @@
     }
 
     .skill:hover {
-      background-color: rgba(100,255,218,0.1);
-      transform: translateY(-3px);
+      background-color: rgba(100,255,218,0.08);
+      transform: translateY(-2px);
     }
 
     a {
@@ -117,40 +152,76 @@
       font-size: 0.85rem;
       color: #888;
     }
+
+    .indicator {
+      position: fixed;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #888;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: var(--accent);
+    }
   </style>
 </head>
 <body>
+  <div class="indicator">
+    <div class="dot" data-index="0"></div>
+    <div class="dot" data-index="1"></div>
+    <div class="dot" data-index="2"></div>
+    <div class="dot" data-index="3"></div>
+    <div class="dot" data-index="4"></div>
+    <div class="dot" data-index="5"></div>
+    <div class="dot" data-index="6"></div>
+  </div>
   <main>
-    <section class="hero fade-in">
+    <section class="hero">
       <div class="parallax" id="parallax"></div>
       <div class="content">
         <h1>Karan Kumar</h1>
-        <p>Future Cloud Architect | Building immersive digital experiences</p>
+        <p>Future Cloud Architect | Designing flow-inspired digital experiences</p>
       </div>
     </section>
 
-    <section class="fade-in">
+    <section>
       <div class="content">
         <h2>About Me</h2>
-        <p>I am a Cloud & AI enthusiast learning full-stack development, DevOps, and automation — with a strong foundation in C++ and Python.</p>
+        <p>Hi, I’m Karan — a passionate engineer blending creativity and tech. I specialize in full-stack development and DevOps, driven by a fascination with cloud infrastructure and AI systems.</p>
+        <p>I’m currently building real-world projects, mastering tools like Docker, Git, and AWS, while diving into Python automation and machine learning.</p>
+        <p>I believe in crafting software that flows — clean, smooth, and impactful.</p>
+        <p><em>“Every digital flow begins with intent.”</em></p>
       </div>
     </section>
 
-    <section class="fade-in">
+    <section>
       <div class="content">
-        <h2>Featured Project</h2>
+        <h2>Projects</h2>
         <div class="project">
-          <h3>IIT Madras Website Clone</h3>
-          <p>A responsive clone of the IIT Madras homepage built using HTML and CSS.</p>
+          <h3>IIT Madras Homepage Clone</h3>
+          <p>A responsive clone of the IIT Madras homepage built using HTML/CSS. Focused on layout fidelity and responsive behavior.</p>
           <p>
             🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone/" target="_blank">Live Demo</a> |
             <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank">GitHub</a>
           </p>
         </div>
+        <!-- Add more projects here as needed -->
       </div>
     </section>
 
-    <section class="fade-in">
+    <section>
       <div class="content">
         <h2>Skills</h2>
         <div class="skill-list">
@@ -168,7 +239,31 @@
       </div>
     </section>
 
-    <section class="fade-in">
+    <section>
+      <div class="content">
+        <h2>Experience</h2>
+        <div class="experience">
+          <p><strong>Personal Projects & Self-Learning</strong><br />
+          Ongoing (2024 – Present)<br />
+          Built multiple frontend projects, developed skills in Git workflows, Linux scripting, and foundational DevOps pipelines.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content">
+        <h2>Education</h2>
+        <div class="education">
+          <p><strong>JECRC University</strong><br />
+          B.Tech in Computer Science<br />
+          2024 – 2028 (Expected)<br />
+          Learning core engineering, programming in C++/Java, and practical projects in cloud/AI domains.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="content">
         <h2>Contact</h2>
         <div class="contact-info">
@@ -180,8 +275,8 @@
     </section>
   </main>
 
-  <footer class="fade-in">
-    &copy; 2025 Karan Kumar. Crafted with minimalism.
+  <footer>
+    &copy; 2025 Karan Kumar. Crafted with flow and intention.
   </footer>
 
   <script>
@@ -191,7 +286,34 @@
       const y = (e.clientY / window.innerHeight - 0.5) * 20;
       parallax.style.transform = `translate(${x}px, ${y}px)`;
     });
+
+    // Scroll-triggered animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Dot indicator active state
+    const dots = document.querySelectorAll('.dot');
+    const sections = document.querySelectorAll('section');
+    const sectionOffsets = Array.from(sections).map(sec => sec.offsetTop);
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+      sectionOffsets.forEach((offset, index) => {
+        if (scrollPos >= offset) {
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[index].classList.add('active');
+        }
+      });
+    });
   </script>
-  <script src="js/ripple.js"></script>
 </body>
 </html>
