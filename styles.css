@@ -277,6 +277,9 @@ blockquote {
   color: #64ffda;
   border-left: 4px solid #64ffda;
   padding-left: 1rem;
+  text-align: justify; /* Or left if you prefer */
+  margin: 0 auto;
+  max-width: 700px;
 }
 
 /* Fade-in effect */
