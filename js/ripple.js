@@ -24,23 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cursor ring effect on mouse move
-  document.body.addEventListener('mousemove', function (e) {
-    const ring = document.createElement('span');
-    ring.classList.add('cursor-ring');
-    document.body.appendChild(ring);
-
-    const size = 40; // ring diameter in px
-    ring.style.width = ring.style.height = size + 'px';
-    ring.style.left = e.clientX - size / 2 + 'px';
-    ring.style.top = e.clientY - size / 2 + 'px';
-
-    ring.classList.add('cursor-ring-animate');
-
-    ring.addEventListener('animationend', () => {
-      ring.remove();
-    });
-  });
 });
 
 const style = document.createElement('style');
@@ -64,27 +47,6 @@ style.textContent = `
     to {
       opacity: 0;
       transform: scale(4);
-    }
-  }
-
-  .cursor-ring {
-    position: fixed;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.6;
-    transform: scale(0);
-    z-index: 10000;
-  }
-
-  .cursor-ring-animate {
-    animation: cursor-ring-effect 0.8s forwards;
-  }
-
-  @keyframes cursor-ring-effect {
-    to {
-      opacity: 0;
-      transform: scale(2);
     }
   }
 `;
