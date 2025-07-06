@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Apply ripple effect only on buttons and links
   document.body.addEventListener('click', function (e) {
+    const target = e.target;
+    if (target.tagName !== 'BUTTON' && target.tagName !== 'A') {
+      return;
+    }
+
     const ripple = document.createElement('span');
     ripple.classList.add('ripple');
-    this.appendChild(ripple);
+    target.appendChild(ripple);
 
-    const maxDim = Math.max(this.clientWidth, this.clientHeight);
+    const maxDim = Math.max(target.clientWidth, target.clientHeight);
     ripple.style.width = ripple.style.height = maxDim + 'px';
 
-    const rect = this.getBoundingClientRect();
+    const rect = target.getBoundingClientRect();
     ripple.style.left = e.clientX - rect.left - maxDim / 2 + 'px';
     ripple.style.top = e.clientY - rect.top - maxDim / 2 + 'px';
 

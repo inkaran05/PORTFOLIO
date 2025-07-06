@@ -304,3 +304,69 @@ blockquote {
   opacity: 1;
   transform: none;
 }
+
+/* Section entrance animation */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation when visible */
+.fade-in.visible {
+  animation: fadeSlideIn 0.8s forwards;
+}
+
+/* Skill item hover animation */
+.skill {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.skill:hover {
+  background-color: rgba(100, 255, 218, 0.15);
+  color: var(--accent);
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Dot indicator pulse animation */
+.dot {
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+.dot.active {
+  background-color: var(--accent);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent);
+  }
+  50% {
+    box-shadow: 0 0 10px 6px rgba(100, 255, 218, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0 var(--accent);
+  }
+}
+
+/* Footer fade-in animation */
+footer.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1s forwards;
+  animation-delay: 0.5s;
+}
+
+/* Smooth transitions on links and buttons */
+a, button {
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+a:hover, a:focus, button:hover, button:focus {
+  color: var(--accent);
+  transform: scale(1.05);
+}
