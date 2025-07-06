@@ -95,3 +95,11 @@ nav a:focus {
     margin-top: 0.5rem;
   }
 }
+
+#rippleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 50; /* Above everything */
+}
