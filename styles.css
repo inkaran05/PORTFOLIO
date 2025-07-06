@@ -236,7 +236,18 @@ a:hover, a:focus {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 50; /* Above everything */
+  z-index: 0; /* Lowered to avoid blocking links */
+}
+
+a {
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.project a:hover {
+  text-decoration: underline;
+  color: #64ffda;
 }
 
 /* Tech Stack and Call to Action */
