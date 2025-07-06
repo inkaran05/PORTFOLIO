@@ -58,6 +58,17 @@
       color: white;
     }
 
+    /* Background video styling */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
     section {
       scroll-snap-align: start;
       min-height: 100vh;
@@ -186,7 +197,7 @@
   <div class="progress-bar"><div id="scroll-progress"></div></div>
 
   <nav>
-    <a href="#">Home</a>
+    <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
@@ -205,7 +216,7 @@
     <div class="dot" data-index="6"></div>
   </div>
   <main>
-    <section class="hero">
+    <section id="home" class="hero">
       <div class="parallax" id="parallax"></div>
       <div class="content">
         <h1>Karan Kumar</h1>
@@ -213,7 +224,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="about">
       <div class="content">
         <h2>About Me</h2>
         <p>Hi, I’m Karan — a passionate engineer blending creativity and tech. I specialize in full-stack development and DevOps, driven by a fascination with cloud infrastructure and AI systems.</p>
@@ -223,7 +234,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="projects">
       <div class="content">
         <h2>Projects</h2>
         <div class="project">
@@ -238,7 +249,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="skills">
       <div class="content">
         <h2>Skills</h2>
         <div class="skill-list">
@@ -256,7 +267,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="experience">
       <div class="content">
         <h2>Experience</h2>
         <div class="experience">
@@ -268,7 +279,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="education">
       <div class="content">
         <h2>Education</h2>
         <div class="education">
@@ -280,7 +291,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="contact">
       <div class="content">
         <h2>Contact</h2>
         <div class="contact-info">
@@ -295,6 +306,8 @@
   <footer>
     &copy; 2025 Karan Kumar. Crafted with flow and intention.
   </footer>
+
+  <script src="js/ripple.js"></script>
 
   <script>
     const parallax = document.getElementById('parallax');
