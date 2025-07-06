@@ -25,6 +25,7 @@
       color: var(--text);
       overflow-x: hidden;
       scroll-behavior: smooth;
+      
     }
 
     main {
@@ -178,6 +179,22 @@
   </style>
 </head>
 <body>
+  <video class="bg-video" autoplay muted loop>
+    <source src="https://storage.googleapis.com/pinhole-about-assets-prod-asia/RNDR_TunnelVidoes_stretched_005_1440x1080.mp4" type="video/mp4">
+  </video>
+
+  <div class="progress-bar"><div id="scroll-progress"></div></div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <div class="indicator">
     <div class="dot" data-index="0"></div>
     <div class="dot" data-index="1"></div>
