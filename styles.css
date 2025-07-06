@@ -261,3 +261,31 @@ a:hover, a:focus {
   color: #64FFDA;
   text-align: center;
 }
+
+/* Avatar image */
+.avatar {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(100,255,255,0.2);
+}
+
+/* Quote */
+blockquote {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #64ffda;
+  border-left: 4px solid #64ffda;
+  padding-left: 1rem;
+}
+
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease-in-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}

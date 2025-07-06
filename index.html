@@ -126,11 +126,18 @@
     <p>Future Cloud Architect</p>
   </header>
 
-  <section id="about" class="card">
+  <section id="about" class="card fade-in">
+    <!-- Optional avatar -->
+    <!-- <img src="avatar.svg" alt="Karan Avatar" class="avatar"> -->
+
     <h2>About Me</h2>
     <p>
-      I'm Karan Kumar, a Computer Science student at JECRC University passionate about building in the cloud and AI domains. I enjoy crafting responsive websites, automating tasks, and learning through structured self-guided plans. This portfolio reflects my learning journey and personal evolution.
+      I'm <strong>Karan Kumar</strong>, a passionate <strong>Cloud and AI enthusiast</strong> studying Computer Science at JECRC University. I love turning ideas into clean, efficient code and building futuristic solutions. Whether it's automating tasks, designing interactive websites, or learning DevOps workflows — I'm all in. Let's build something amazing together.
     </p>
+
+    <blockquote>
+      “Code is the cloth of the digital world — I’m here to weave it.”
+    </blockquote>
   </section>
 
   <section id="projects" class="card">
@@ -243,6 +250,19 @@
         btn.innerText = '🌙 Toggle';
       }
     };
+  </script>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
