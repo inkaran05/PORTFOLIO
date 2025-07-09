@@ -5,101 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karan Kumar | Cloud Architect Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-dTLVjsFvSb13R1C0MLkNuIGQYAh/NvLDRtwLs8tQXZACqUqfH2KVQfEGJ+j6YvMfZnFC9a7dcKDyVwDbmW4RSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    :root {
-      --bg: #0c0c0c;
-      --text: #ffffff;
-      --accent: #64ffda;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    main {
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(12, 12, 12, 0.85);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      z-index: 9999;
-    }
-
-    nav a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 10;
-      color: white;
-      text-align: center;
-      background-color: transparent;
-      padding: 0 1rem;
-    }
-
-    .hero-text h1 {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    }
-
-    .hero-text p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto;
-      color: #ccc;
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    }
-
-    .bg-video {
-      opacity: 0.5;
-      filter: blur(8px);
-    }
-  </style>
-  <video class="bg-video" autoplay muted loop>
-    <source src="https://storage.googleapis.com/pinhole-about-assets-prod-asia/RNDR_TunnelVidoes_stretched_005_1440x1080.mp4" type="video/mp4">
-  </video>
-
-  <div class="progress-bar"><div id="scroll-progress"></div></div>
-
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -110,108 +18,75 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <div class="indicator">
-    <div class="dot" data-index="0"></div>
-    <div class="dot" data-index="1"></div>
-    <div class="dot" data-index="2"></div>
-    <div class="dot" data-index="3"></div>
-    <div class="dot" data-index="4"></div>
-    <div class="dot" data-index="5"></div>
-    <div class="dot" data-index="6"></div>
-  </div>
   <main>
-    <section class="hero">
-      <div>
+    <section id="hero" class="hero-section">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="https://storage.googleapis.com/pinhole-about-assets-prod-asia/RNDR_TunnelVidoes_stretched_005_1440x1080.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-text">
         <h1>Karan Kumar</h1>
         <p>Future Cloud Architect | Web & System Design Enthusiast</p>
       </div>
     </section>
-    <section id="hero" class="relative w-full h-screen overflow-hidden">
-      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover bg-video" style="transform: scale(1.1);">
-        <source src="https://storage.googleapis.com/pinhole-about-assets-prod-asia/RNDR_TunnelVidoes_stretched_005_1440x1080.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-text flex flex-col items-center justify-center h-full text-center px-4">
-        <h1>Karan Kumar</h1>
-        <p>Future Cloud Architect</p>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>Hi, I’m Karan — a passionate engineer blending creativity and tech. I specialize in full-stack development and DevOps, driven by a fascination with cloud infrastructure and AI systems.</p>
+      <p>I’m currently building real-world projects, mastering tools like Docker, Git, and AWS, while diving into Python automation and machine learning.</p>
+      <p>I believe in crafting software that flows — clean, smooth, and impactful.</p>
+      <p><em>“Every digital flow begins with intent.”</em></p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>IIT Madras Homepage Clone</h3>
+        <p>A responsive clone of the IIT Madras homepage built using HTML/CSS. Focused on layout fidelity and responsive behavior.</p>
+        <p>
+          🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone/" target="_blank">Live Demo</a> |
+          <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank">GitHub</a>
+        </p>
+      </div>
+      <!-- Add more projects here as needed -->
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <div class="skill">C++</div>
+        <div class="skill">Python</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">Linux</div>
+        <div class="skill">Docker</div>
+        <div class="skill">AWS (Learning)</div>
+        <div class="skill">DevOps (Learning)</div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="content">
-        <h2>About Me</h2>
-        <p>Hi, I’m Karan — a passionate engineer blending creativity and tech. I specialize in full-stack development and DevOps, driven by a fascination with cloud infrastructure and AI systems.</p>
-        <p>I’m currently building real-world projects, mastering tools like Docker, Git, and AWS, while diving into Python automation and machine learning.</p>
-        <p>I believe in crafting software that flows — clean, smooth, and impactful.</p>
-        <p><em>“Every digital flow begins with intent.”</em></p>
-      </div>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <p><strong>Personal Projects & Self-Learning</strong><br />
+      Ongoing (2024 – Present)<br />
+      Built multiple frontend projects, developed skills in Git workflows, Linux scripting, and foundational DevOps pipelines.
+      </p>
     </section>
 
-    <section id="projects">
-      <div class="content">
-        <h2>Projects</h2>
-        <div class="project">
-          <h3>IIT Madras Homepage Clone</h3>
-          <p>A responsive clone of the IIT Madras homepage built using HTML/CSS. Focused on layout fidelity and responsive behavior.</p>
-          <p>
-            🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone/" target="_blank">Live Demo</a> |
-            <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank">GitHub</a>
-          </p>
-        </div>
-        <!-- Add more projects here as needed -->
-      </div>
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <p><strong>JECRC University</strong><br />
+      B.Tech in Computer Science<br />
+      2024 – 2028 (Expected)<br />
+      Learning core engineering, programming in C++/Java, and practical projects in cloud/AI domains.</p>
     </section>
 
-    <section id="skills">
-      <div class="content">
-        <h2>Skills</h2>
-        <div class="skill-list">
-          <div class="skill">C++</div>
-          <div class="skill">Python</div>
-          <div class="skill">HTML</div>
-          <div class="skill">CSS</div>
-          <div class="skill">JavaScript</div>
-          <div class="skill">Git & GitHub</div>
-          <div class="skill">Linux</div>
-          <div class="skill">Docker</div>
-          <div class="skill">AWS (Learning)</div>
-          <div class="skill">DevOps (Learning)</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="content">
-        <h2>Experience</h2>
-        <div class="experience">
-          <p><strong>Personal Projects & Self-Learning</strong><br />
-          Ongoing (2024 – Present)<br />
-          Built multiple frontend projects, developed skills in Git workflows, Linux scripting, and foundational DevOps pipelines.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="content">
-        <h2>Education</h2>
-        <div class="education">
-          <p><strong>JECRC University</strong><br />
-          B.Tech in Computer Science<br />
-          2024 – 2028 (Expected)<br />
-          Learning core engineering, programming in C++/Java, and practical projects in cloud/AI domains.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="content">
-        <h2>Contact</h2>
-        <div class="contact-info">
-          <p>Email: <a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/in/karan-kumar-6701542a7/" target="_blank">karan-kumar</a></p>
-          <p>GitHub: <a href="https://github.com/inkaran05" target="_blank">inkaran05</a></p>
-        </div>
-      </div>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:in.iamkaran@outlook.com">in.iamkaran@outlook.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/karan-kumar-6701542a7/" target="_blank">karan-kumar</a></p>
+      <p>GitHub: <a href="https://github.com/inkaran05" target="_blank">inkaran05</a></p>
     </section>
   </main>
 
@@ -228,69 +103,6 @@
   </div>
 
   <script src="js/ripple.js"></script>
-
-  <script>
-    const canvas = document.getElementById("cursorCanvas");
-    const ctx = canvas.getContext("2d");
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    window.addEventListener("resize", () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    let mouseX = width / 2;
-    let mouseY = height / 2;
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    const trail = [];
-    const maxTrail = 40;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, width, height);
-      trail.push({ x: mouseX, y: mouseY, t: Date.now() });
-      if (trail.length > maxTrail) trail.shift();
-
-      for (let i = 0; i < trail.length - 1; i++) {
-        const p1 = trail[i];
-        const p2 = trail[i + 1];
-        const alpha = i / trail.length;
-        ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.strokeStyle = `rgba(150, 200, 255, ${alpha * 0.07})`; // soft blue glow
-        ctx.lineWidth = 12;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = 'rgba(100,200,255,0.05)';
-        ctx.stroke();
-      }
-    }
-
-    animate();
-  </script>
-
-  <style>
-    .cursor-trail .circle {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: rgba(0, 255, 255, 0.2);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: background-color 0.2s ease;
-      will-change: transform;
-    }
-  </style>
-
-  <canvas id="cursorCanvas"></canvas>
+  <script src="script.js"></script>
 </body>
 </html>
