@@ -50,8 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formStatus.textContent = 'Sending...';
 
-    // Send email using EmailJS (you need to configure your EmailJS user ID and template ID)
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+    // Initialize EmailJS with your User ID
+    emailjs.init('YOUR_API_KEY');
+
+    // Send email using EmailJS (replace with your Service ID and Template ID)
+    emailjs.send('service_e705xsm', 'template_ps6u5ie', {
       from_name: name,
       from_email: email,
       message: message,
