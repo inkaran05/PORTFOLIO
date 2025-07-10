@@ -433,3 +433,42 @@ body, html {
   height: 40px;
   opacity: 0.05;
 }
+
+/* Hover effects for buttons and cards */
+button, .open-modal-btn {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+button:hover, .open-modal-btn:hover {
+  transform: scale(1.05);
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Back-to-top button styles */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 24px;
+  background: #333;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 50%;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 999;
+}
+.back-to-top:hover {
+  background: #007bff;
+}
