@@ -274,7 +274,7 @@ footer {
 
 /* Custom cursor */
 body, html {
-  cursor: default; /* Show default cursor */
+  cursor: auto; /* Use system default cursor */
 }
 
 .cursor-trail {
