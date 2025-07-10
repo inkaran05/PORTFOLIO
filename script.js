@@ -67,27 +67,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Lazy loading images (if any)
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.dataset.src;
-          img.removeAttribute('loading');
-          obs.unobserve(img);
-        }
-      });
+// Lazy loading images (if any)
+const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute('loading');
+        obs.unobserve(img);
+      }
     });
-    lazyImages.forEach(img => observer.observe(img));
-  } else {
-    // Fallback: load all images immediately
-    lazyImages.forEach(img => {
-      img.src = img.dataset.src;
-      img.removeAttribute('loading');
-    });
+  });
+  lazyImages.forEach(img => observer.observe(img));
+} else {
+  // Fallback: load all images immediately
+  lazyImages.forEach(img => {
+    img.src = img.dataset.src;
+    img.removeAttribute('loading');
+  });
+}
+
+// Blog posts data
+const blogPosts = [
+  {
+    id: 1,
+    title: "Getting Started with Cloud Architecture",
+    date: "2024-01-15",
+    summary: "An introduction to cloud architecture principles and best practices.",
+    url: "https://example.com/blog/cloud-architecture"
+  },
+  {
+    id: 2,
+    title: "Building Responsive Web Apps",
+    date: "2024-02-10",
+    summary: "Tips and techniques for creating responsive and user-friendly web applications.",
+    url: "https://example.com/blog/responsive-web-apps"
+  },
+  {
+    id: 3,
+    title: "DevOps Essentials for Beginners",
+    date: "2024-03-05",
+    summary: "A beginner's guide to understanding and implementing DevOps workflows.",
+    url: "https://example.com/blog/devops-essentials"
   }
+];
+
+// Function to render blog posts
+function renderBlogPosts() {
+  const blogContainer = document.getElementById('blog-posts');
+  if (!blogContainer) return;
+
+  blogPosts.forEach(post => {
+    const postElement = document.createElement('article');
+    postElement.classList.add('blog-post');
+
+    postElement.innerHTML = `
+      <h3><a href="${post.url}" target="_blank" rel="noopener noreferrer">${post.title}</a></h3>
+      <p class="blog-date">${new Date(post.date).toLocaleDateString()}</p>
+      <p class="blog-summary">${post.summary}</p>
+    `;
+
+    blogContainer.appendChild(postElement);
+  });
+}
+
+// Render blog posts on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+  renderBlogPosts();
+});
 });
 
 // Three.js setup for interactive 3D scene
