@@ -1,77 +1,91 @@
-// PixiJS setup for fabric displacement effect
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scroll for navigation links
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 
-const app = new PIXI.Application({
-  view: document.getElementById('fabric-canvas'),
-  resizeTo: window,
-  transparent: true,
-  resolution: window.devicePixelRatio || 1,
-  autoDensity: true,
-  antialias: true,
+  // Animate skill progress bars when in viewport
+  const skillBars = document.querySelectorAll('.progress');
+  const animateSkills = () => {
+    skillBars.forEach(bar => {
+      const rect = bar.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        bar.style.width = bar.getAttribute('style').match(/width: (\d+)%/)[1] + '%';
+      } else {
+        bar.style.width = '0';
+      }
+    });
+  };
+  window.addEventListener('scroll', animateSkills);
+  animateSkills();
+
+  // Contact form validation and submission using EmailJS
+  const form = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Simple validation
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    if (!name || !email || !message) {
+      formStatus.textContent = 'Please fill in all fields.';
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      formStatus.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    formStatus.textContent = 'Sending...';
+
+    // Send email using EmailJS (you need to configure your EmailJS user ID and template ID)
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+      from_name: name,
+      from_email: email,
+      message: message,
+    }).then(() => {
+      formStatus.textContent = 'Message sent successfully!';
+      form.reset();
+    }, (error) => {
+      formStatus.textContent = 'Failed to send message. Please try again later.';
+      console.error('EmailJS error:', error);
+    });
+  });
+
+  // Lazy loading images (if any)
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.removeAttribute('loading');
+          obs.unobserve(img);
+        }
+      });
+    });
+    lazyImages.forEach(img => observer.observe(img));
+  } else {
+    // Fallback: load all images immediately
+    lazyImages.forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('loading');
+    });
+  }
 });
-
-let displacementSprite, displacementFilter;
-let mousePosition = { x: 0, y: 0 };
-let targetPosition = { x: 0, y: 0 };
-let velocity = { x: 0, y: 0 };
-const easing = 0.1;
-
-// Load fabric texture and displacement map
-PIXI.Loader.shared
-  .add('fabricTexture', 'https://i.ibb.co/2kR7Zqv/silk-texture.jpg')
-  .add('displacementMap', 'https://i.ibb.co/7vY9Q7Z/displacement-map.png')
-  .load(setup);
-
-function setup(loader, resources) {
-  // Create fabric sprite
-  const fabric = new PIXI.Sprite(resources.fabricTexture.texture);
-  fabric.width = app.screen.width;
-  fabric.height = app.screen.height;
-  fabric.tileScale.set(1);
-  fabric.tilePosition.set(0);
-  app.stage.addChild(fabric);
-
-  // Create displacement sprite
-  displacementSprite = new PIXI.Sprite(resources.displacementMap.texture);
-  displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-  displacementSprite.scale.set(2);
-  app.stage.addChild(displacementSprite);
-
-  // Create displacement filter
-  displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
-  displacementFilter.scale.x = 30;
-  displacementFilter.scale.y = 30;
-
-  fabric.filters = [displacementFilter];
-
-  // Animate displacement sprite
-  app.ticker.add(() => {
-    // Smoothly move displacement sprite towards target position
-    velocity.x += (targetPosition.x - displacementSprite.x) * easing;
-    velocity.y += (targetPosition.y - displacementSprite.y) * easing;
-
-    velocity.x *= 0.8;
-    velocity.y *= 0.8;
-
-    displacementSprite.x += velocity.x;
-    displacementSprite.y += velocity.y;
-
-    // Slowly move the displacement map to create waving effect
-    displacementSprite.x += 1;
-    displacementSprite.y += 1;
-  });
-
-  // Mouse move event to update target position
-  window.addEventListener('mousemove', (event) => {
-    targetPosition.x = event.clientX;
-    targetPosition.y = event.clientY;
-  });
-
-  // Resize handler
-  window.addEventListener('resize', () => {
-    fabric.width = app.screen.width;
-    fabric.height = app.screen.height;
-  });
-}
 
 // Three.js setup for interactive 3D scene
 

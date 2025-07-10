@@ -154,27 +154,82 @@ main {
 }
 
 /* Skills */
-.skill-list {
+.skill-bars {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 1rem;
 }
 
-.skill {
-  background: rgba(100, 255, 218, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 600;
-  color: #64ffda;
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  cursor: default;
+.skill-bar {
+  display: flex;
+  flex-direction: column;
 }
 
-.skill:hover {
-  background-color: rgba(100, 255, 218, 0.3);
-  color: #0ff;
-  transform: scale(1.1) translateY(-5px);
+.skill-name {
+  font-weight: 600;
+  color: #64ffda;
+  margin-bottom: 0.3rem;
+}
+
+.progress-bar {
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  background: #64ffda;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
+
+/* Contact form */
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contact-form label {
+  font-weight: 600;
+  color: #64ffda;
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+#contact-form button {
+  background-color: #64ffda;
+  color: #121212;
+  font-weight: 700;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+  background-color: #52c7b8;
+}
+
+#form-status {
+  color: #64ffda;
+  font-weight: 600;
+  min-height: 1.5rem;
 }
 
 /* Footer */
