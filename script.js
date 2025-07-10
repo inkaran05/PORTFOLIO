@@ -215,3 +215,64 @@ function animateCursorTrail() {
 if (circles.length > 0) {
   animateCursorTrail();
 }
+
+// Typing effect for hero subtitle
+const typingText = document.getElementById('typing-text');
+const textToType = 'Future Cloud Architect | Web & System Design Enthusiast';
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textToType.length) {
+    typingText.textContent += textToType.charAt(charIndex);
+    charIndex++;
+    setTimeout(type, 100);
+  }
+}
+
+if (typingText) {
+  type();
+}
+
+// Modal functionality
+const modal = document.getElementById('project-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalDescription = document.getElementById('modal-description');
+const modalExtra = document.getElementById('modal-extra');
+const openModalButtons = document.querySelectorAll('.open-modal-btn');
+const closeModalButton = document.querySelector('.close-modal');
+
+const projectDetails = {
+  'iit-madras': {
+    title: 'IIT Madras Homepage Clone',
+    description: 'A responsive clone of the IIT Madras homepage built using HTML/CSS. Focused on layout fidelity and responsive behavior.',
+    extra: '<p>Technologies used: HTML, CSS, Responsive Design</p>'
+  },
+  'rti-ethanol-ev': {
+    title: 'RTI Ethanol EV Transparency',
+    description: 'A transparency dashboard for ethanol and electric vehicle data, built with React and integrated APIs.',
+    extra: '<p>Technologies used: React, REST APIs, Data Visualization</p>'
+  }
+};
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const projectKey = button.getAttribute('data-project');
+    const details = projectDetails[projectKey];
+    if (details) {
+      modalTitle.textContent = details.title;
+      modalDescription.textContent = details.description;
+      modalExtra.innerHTML = details.extra;
+      modal.style.display = 'block';
+    }
+  });
+});
+
+closeModalButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});

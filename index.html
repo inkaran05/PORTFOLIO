@@ -25,7 +25,7 @@
       </video>
       <div class="hero-text">
         <h1>Karan Kumar</h1>
-        <p>Future Cloud Architect | Web & System Design Enthusiast</p>
+        <span id="typing-text"></span>
       </div>
     </section>
 
@@ -39,16 +39,36 @@
 
     <section id="projects" class="section">
       <h2>Projects</h2>
-      <div class="project">
-        <h3>IIT Madras Homepage Clone</h3>
+      <div class="project" data-project="iit-madras">
+        <h3>IIT Madras Homepage Clone <span class="badge">HTML</span> <span class="badge">CSS</span></h3>
         <p>A responsive clone of the IIT Madras homepage built using HTML/CSS. Focused on layout fidelity and responsive behavior.</p>
         <p>
           🔗 <a href="https://inkaran05.github.io/IIT-Madras-Clone/" target="_blank">Live Demo</a> |
           <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank">GitHub</a>
         </p>
+        <button class="open-modal-btn" data-project="iit-madras">More Info</button>
       </div>
-      <!-- Add more projects here as needed -->
+
+      <div class="project" data-project="rti-ethanol-ev">
+        <h3>RTI Ethanol EV Transparency <span class="badge">React</span> <span class="badge">API</span></h3>
+        <p>A transparency dashboard for ethanol and electric vehicle data, built with React and integrated APIs.</p>
+        <p>
+          🔗 <a href="https://inkaran05.github.io/RTI-Ethanol-EV-Transparency/" target="_blank">Live Demo</a> |
+          <a href="https://github.com/inkaran05/RTI-Ethanol-EV-Transparency" target="_blank">GitHub</a>
+        </p>
+        <button class="open-modal-btn" data-project="rti-ethanol-ev">More Info</button>
+      </div>
     </section>
+
+    <!-- Modal Structure -->
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <div id="modal-extra"></div>
+      </div>
+    </div>
 
     <section id="skills" class="section">
       <h2>Skills</h2>
