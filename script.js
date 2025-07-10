@@ -182,3 +182,36 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Cursor trail movement
+const cursorTrail = document.querySelector('.cursor-trail');
+const circles = cursorTrail ? cursorTrail.querySelectorAll('.circle') : [];
+const circlePositions = Array.from(circles).map(() => ({ x: 0, y: 0 }));
+const mouse = { x: 0, y: 0 };
+
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function animateCursorTrail() {
+  let x = mouse.x;
+  let y = mouse.y;
+
+  circles.forEach((circle, index) => {
+    const nextPos = circlePositions[index];
+    nextPos.x += (x - nextPos.x) * 0.3;
+    nextPos.y += (y - nextPos.y) * 0.3;
+
+    circle.style.transform = `translate(${nextPos.x}px, ${nextPos.y}px)`;
+
+    x = nextPos.x;
+    y = nextPos.y;
+  });
+
+  requestAnimationFrame(animateCursorTrail);
+}
+
+if (circles.length > 0) {
+  animateCursorTrail();
+}
