@@ -27,6 +27,39 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', animateSkills);
   animateSkills();
 
+  // Add click animation effect on skill bars
+  const skillBarContainers = document.querySelectorAll('.skill-bar');
+  skillBarContainers.forEach(skillBar => {
+    skillBar.style.position = 'relative'; // Ensure relative positioning for animation elements
+    skillBar.addEventListener('click', (e) => {
+      // Remove any existing animation span
+      const existingAnim = skillBar.querySelector('.click-animation');
+      if (existingAnim) {
+        existingAnim.remove();
+      }
+
+      // Create animation span
+      const animSpan = document.createElement('span');
+      animSpan.classList.add('click-animation');
+      skillBar.appendChild(animSpan);
+
+      // Position the animation span at click coordinates relative to skillBar
+      const rect = skillBar.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      animSpan.style.left = x + 'px';
+      animSpan.style.top = y + 'px';
+
+      // Add animation class to trigger CSS animation
+      animSpan.classList.add('animate');
+
+      // Remove the animation span after animation ends
+      animSpan.addEventListener('animationend', () => {
+        animSpan.remove();
+      });
+    });
+  });
+
   // Contact form validation and submission using EmailJS
   const form = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
