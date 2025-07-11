@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RTI Ethanol EV Transparency - Project Case Study</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+  </nav>
+  <main class="section" style="max-width: 900px; margin: 2rem auto; padding: 1rem;">
+    <h1>RTI Ethanol EV Transparency</h1>
+    <p><em>An interactive dashboard providing real-time transparency into India's green energy initiatives using React and public APIs.</em></p>
+
+    <div style="margin: 1rem 0;">
+      <a href="https://inkaran05.github.io/RTI-Ethanol-EV-Transparency/" target="_blank" class="btn btn-primary" style="margin-right: 1rem;">Live Demo</a>
+      <a href="https://github.com/inkaran05/RTI-Ethanol-EV-Transparency" target="_blank" class="btn btn-secondary">View Source Code</a>
+    </div>
+
+    <h2>Technologies Used</h2>
+    <ul>
+      <li>React.js: For building a dynamic and component-based user interface.</li>
+      <li>Chart.js / Recharts: For creating interactive and visually appealing data visualizations.</li>
+      <li>REST APIs: For fetching real-time data from various government sources.</li>
+      <li>CSS Modules / Styled-Components: For scoped and maintainable styling.</li>
+    </ul>
+
+    <h2>Project Overview</h2>
+    <p>The goal of this project was to build a user-friendly platform that demystifies complex data related to India's ethanol production and electric vehicle (EV) adoption. By integrating with public government APIs, the dashboard fetches, processes, and displays this information through interactive charts and graphs, making it accessible and understandable for the general public, researchers, and policymakers.</p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li>Real-Time Data Integration: Asynchronously fetches the latest data from multiple APIs to ensure the information is always current.</li>
+      <li>Interactive Data Visualization: Implemented dynamic bar charts, line graphs, and pie charts to allow users to explore data trends and comparisons intuitively.</li>
+      <li>Component-Based Architecture: Built with a modular structure in React, making the codebase clean, scalable, and easy to maintain.</li>
+      <li>State Management: Managed application state effectively, including loading and error states, to provide a smooth user experience while data is being fetched.</li>
+    </ul>
+
+    <h2>Challenges & Problem-Solving</h2>
+    <p><strong>The Challenge:</strong><br />
+    The biggest technical hurdle was handling the inconsistency and unreliability of the public APIs. Data from different sources arrived in varied formats (XML, JSON), with different key names, and sometimes the API endpoints would be slow or unresponsive. This could lead to a broken UI or a poor user experience.</p>
+    <p><strong>The Solution:</strong><br />
+    To solve this, I designed a dedicated data normalization layer within the application. When data is fetched, it first passes through this layer before being stored in the application's state. This layer is a set of utility functions that:
+    <ul>
+      <li>Transforms all incoming data into a consistent JSON format.</li>
+      <li>Standardizes key names and data structures.</li>
+      <li>Implements robust error handling for failed API calls, displaying a user-friendly message instead of crashing the app.</li>
+      <li>Caches data temporarily to reduce the number of API calls and improve performance.</li>
+    </ul>
+    This approach decoupled the UI components from the messy data sources, making the front-end code much cleaner and more resilient to back-end issues.</p>
+
+    <h2>Visuals</h2>
+    <p><em>(This is a placeholder. You would insert a high-quality screenshot of your dashboard project here.)</em></p>
+
+    <p><a href="index.html#projects" class="btn btn-primary">Back to Projects</a></p>
+  </main>
+</body>
+</html>

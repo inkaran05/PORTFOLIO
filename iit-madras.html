@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IIT Madras Homepage Clone - Project Case Study</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+  </nav>
+  <main class="section" style="max-width: 900px; margin: 2rem auto; padding: 1rem;">
+    <h1>IIT Madras Homepage Clone</h1>
+    <p><em>A responsive and pixel-perfect recreation of the official IIT Madras website homepage, focusing on foundational front-end development skills.</em></p>
+
+    <div style="margin: 1rem 0;">
+      <a href="https://inkaran05.github.io/IIT-Madras-Clone/" target="_blank" class="btn btn-primary" style="margin-right: 1rem;">Live Demo</a>
+      <a href="https://github.com/inkaran05/IIT-Madras-Clone" target="_blank" class="btn btn-secondary">View Source Code</a>
+    </div>
+
+    <h2>Technologies Used</h2>
+    <ul>
+      <li>HTML5: For structuring the content and semantics.</li>
+      <li>CSS3: For styling, layout (Flexbox/Grid), and responsiveness.</li>
+    </ul>
+
+    <h2>Project Overview</h2>
+    <p>The primary goal of this project was to meticulously replicate a complex, real-world website to solidify and showcase core front-end skills. The IIT Madras homepage was chosen for its intricate layout, multi-level navigation, and diverse content sections, presenting a significant challenge in pure HTML and CSS. The project demonstrates a strong command of semantic HTML structure and advanced CSS techniques for layout and responsive design.</p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li>Pixel-Perfect Replication: The design closely mirrors the original site's layout, spacing, typography, and color scheme.</li>
+      <li>Fully Responsive Design: The page is fully functional and aesthetically pleasing across all device sizes, from large desktops to small mobile screens.</li>
+      <li>Complex Navigation Menu: Recreated the multi-level dropdown navigation menu, ensuring it is fully responsive and collapses into a mobile-friendly hamburger menu.</li>
+      <li>CSS Grid & Flexbox Layout: Utilized modern CSS layout techniques like Grid for the main page structure and Flexbox for component alignment, ensuring a robust and maintainable structure.</li>
+    </ul>
+
+    <h2>Challenges & Problem-Solving</h2>
+    <p><strong>The Challenge:</strong><br />
+    One of the main difficulties was ensuring the complex grid of news, events, and announcement cards would reflow elegantly on smaller screens without breaking the layout or becoming unreadable. The original site uses a multi-column layout that is challenging to adapt for a single-column mobile view.</p>
+    <p><strong>The Solution:</strong><br />
+    I leveraged CSS Grid with the grid-template-areas property for the desktop layout, which provided a clear and visual way to structure the page. For responsiveness, I used CSS Media Queries to redefine the grid layout at different breakpoints. On mobile screens, the grid was reconfigured to a single column, and the order property in Flexbox was used within certain parent containers to rearrange key elements for a better mobile user experience, such as moving a call-to-action button to a more prominent position.</p>
+
+    <h2>Visuals</h2>
+    <p><em>(This is a placeholder. You would insert a high-quality screenshot of your project here.)</em></p>
+
+    <p><a href="index.html#projects" class="btn btn-primary">Back to Projects</a></p>
+  </main>
+</body>
+</html>
