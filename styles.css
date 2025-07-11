@@ -5,6 +5,15 @@
   box-sizing: border-box;
 }
 
+#typed-text {
+  color: #00ffe1;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: block;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
 body, html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
